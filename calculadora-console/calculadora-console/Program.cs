@@ -9,18 +9,26 @@ namespace calculadora_console
         {
             
             // passar as notas
-            notas(6.0f, 6.0f, 5.9f, 6.0f);
+            notas(2.0f, 1.0f, 1.4f, 1.0f);
         }
 
-        public static void notas(float n1, float n2, float n3, float n4)
+        static void notas(float n1, float n2, float n3, float n4)
         {
             float nFinal = (2 * n1 + 2 * n2 + 3 * n3 + 3 * n4 ) / 10;
             
-            if (nFinal < 6.0f)
+            
+            if ((nFinal + 10.0f) / 2 < 10.0f)
             {
-                for (float i = 0.1f; i != 10.0f; i++)
+                MessageBox.Show("Você já foi reprovado !");
+            }
+            
+            
+            else if (nFinal < 6.0f)
+            {
+
+                for (float i = 0.1f; i <= 10.0f; i++)
                 {
-                    if (((nFinal + i) / 2) >= 6.0f)
+                    if ((nFinal + i) / 2 >= 6.0f)
                     {
                         MessageBox.Show("Para passar você precisa de " + i + " na prova final.");
                         break;
@@ -30,11 +38,12 @@ namespace calculadora_console
                 
             }
             
-            else if (nFinal >= 6) 
+            else
             {
-                MessageBox.Show("Sua média é: " + nFinal + " Você foi aprovado!");
+                MessageBox.Show("Sua média é: " + nFinal + ". Você foi aprovado!");
             }
           
         }
+      
     }
 }
